@@ -1,3 +1,8 @@
-from fastapi import FASTAPI
+from fastapi import FastAPI
 
-app = FASTAPI()
+app = FastAPI()
+
+
+@app.get("/health")
+def health():
+    return {"message": "Health OK"}
