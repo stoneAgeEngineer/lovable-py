@@ -1,0 +1,17 @@
+services:
+  postgres:
+    container_name: lovable-postgres
+    image : postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - type: volume
+        source: postgres_data 
+        target: /var/lib/postgresql
+
+volumes:
+  postgres_data:
